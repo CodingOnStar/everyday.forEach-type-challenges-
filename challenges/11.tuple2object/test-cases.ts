@@ -1,3 +1,5 @@
+import { Equal, Expect } from "@type-challenges/utils";
+
 const tuple = ["tesla", "model 3", "model X", "model Y"] as const;
 // 此时typeof tuple是["tesla", "model 3", "model X", "model Y"] （字面量类型）
 // 如果不加as const，就是string[]
@@ -15,3 +17,6 @@ type cases = [
     >
   >
 ];
+
+// @ts-expect-error
+type error = TupleToObject<[[1, 2], {}]>;
